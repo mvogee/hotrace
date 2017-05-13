@@ -17,7 +17,7 @@ int main()
 	create_map(map); // make me. create the hash map by reading from strdin; will be exited when an empty line is hit
 	search_map(map); // make me. read search keys and print the value as the given key location.
 	free_map(map); // make me. free all elements of the map
-	printf("%d\n", sax_hash(argv[1]));
+	
 	// read in the input from the stdin.
 	// empty line indicates the end of the input.
 	// take the key and the next line which is its value in the key = value relationship
