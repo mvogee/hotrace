@@ -10,4 +10,6 @@ typedef struct s_bucket
 	char			*value;
 }				t_bucket;
 
+int		sax_hash(char *key);
+
 #endif
