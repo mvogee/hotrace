@@ -57,7 +57,7 @@ void	create_map(t_bucket *map[]) // t_bucket* map[] makes more sense. its a buck
 
 int main()
 {
-	t_bucket	*map[MAPSIZE]; // this is hour hashmap. do we want fixed or should we malloc for a size determined while reading?
+	t_bucket	*map[MAPSIZE]; // this is hour hashmap.
 	create_map(map); // make me. create the hash map by reading from strdin; will be exited when an empty line is hit
 	search_map(map); // make me. read search keys and print the value as the given key location.
 	free_map(map); // make me. free all elements of the map
