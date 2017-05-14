@@ -1,6 +1,5 @@
 
 #include "../includes/hotrace.h"
-#include <stdio.h>
 // todo
 /*
  XX 1. create a hashing funciton and make sure it works. XX
@@ -23,13 +22,34 @@ void	hr_bzero(t_bucket *map[MAPSIZE], int n)
 	}
 }
 
-int main()
+void	free_map(t_bucket *map[MAPSIZE])
+{
+	int			i;
+	t_bucket	*tmp;
+	t_bucket	*next;
+
+	i = 0;
+	while (i < MAPSIZE)
+	{
+		tmp = map[i];
+		while (tmp)
+		{
+			next = tmp->next;
+			free(tmp->key);
+			free(tmp->value);
+			tmp = next;
+		}
+		i++;
+	}
+}
+
+int		main()
 {
 	t_bucket	*map[MAPSIZE]; // this is hour hashmap.
 	hr_bzero(map, MAPSIZE);
 	create_map(map); // make me. create the hash map by reading from strdin; will be exited when an empty line is hit
 	search_map(map); // make me. read search keys and print the value as the given key location.
-	//free_map(map); // make me. free all elements of the map
+	free_map(map); // make me. free all elements of the map
 
 	// read in the input from the stdin.
 	// empty line indicates the end of the input.

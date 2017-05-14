@@ -1,7 +1,7 @@
 #ifndef HOTRACE_H
 # define HOTRACE_H
 
-#define MAPSIZE 10
+#define MAPSIZE 1024
 #include <sys/types.h>
 #include <stdlib.h>
 #include <unistd.h>

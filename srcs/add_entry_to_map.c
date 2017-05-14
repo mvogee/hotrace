@@ -1,6 +1,5 @@
 
 #include "../includes/hotrace.h"
-#include <stdio.h>
 
 void	add_entry_to_map(t_bucket *entry, int hindex, t_bucket *map[])
 {

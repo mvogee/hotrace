@@ -11,5 +11,5 @@ int		sax_hash(char *key) // takes a key string and returns the hashed int for th
 		hash ^= (hash << 5) + (hash >> 2) + *key;
 		key++;
 	}
-	return (hash % MAPSIZE);
+	return (abs(hash % MAPSIZE));
 }

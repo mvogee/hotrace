@@ -18,7 +18,7 @@ int		hr_strcmp(char *s1, char *s2)
 void 	not_found(char *key)
 {
 	write(1, key, hr_strlen(key));
-	write(1, " Not found.\n", 12);
+	write(1, ": Not found.\n", 13);
 }
 
 void	find_value(t_bucket *tmp, char *key)
