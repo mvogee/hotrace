@@ -11,11 +11,24 @@
  5. optimze by making collision searches faster. possibly by doing a tree sort instead of linked list.
 */
 
+void	hr_bzero(t_bucket *map[MAPSIZE], int n)
+{
+ 	int i;
+
+	i = 0;
+	while (i < n)
+	{
+		map[i] = NULL;
+		i++;
+	}
+}
+
 int main()
 {
 	t_bucket	*map[MAPSIZE]; // this is hour hashmap.
-	create_map(&map); // make me. create the hash map by reading from strdin; will be exited when an empty line is hit
-	//search_map(map); // make me. read search keys and print the value as the given key location.
+	hr_bzero(map, MAPSIZE);
+	create_map(map); // make me. create the hash map by reading from strdin; will be exited when an empty line is hit
+	search_map(map); // make me. read search keys and print the value as the given key location.
 	//free_map(map); // make me. free all elements of the map
 
 	// read in the input from the stdin.

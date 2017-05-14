@@ -8,6 +8,7 @@ SRCS = srcs/main.c \
 		srcs/create_map.c \
 		srcs/hash.c \
 		srcs/add_entry_to_map.c \
+		srcs/search_map.c \
 		srcs/de_libs/gnl.c \
 		srcs/de_libs/hr_strchr.c \
 		srcs/de_libs/hr_strcpy.c \

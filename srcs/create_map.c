@@ -1,5 +1,4 @@
 #include "../includes/hotrace.h"
-#include <stdio.h>
 // todo
 /*
  XX 1. create a hashing funciton and make sure it works. XX
@@ -12,16 +11,14 @@
 
 char	*read_key(void)
 {
-	//read from stdin until a newline is hit.
 	char *key;
 	int len;
 
 	key = NULL;
 	len = gnl(0, &key);
-	if (len <= 0)
+	if (len <= 0 || !*key)
 		return (NULL);
 	return (key);
-
 }
 
 char	*read_value(void)
@@ -31,7 +28,7 @@ char	*read_value(void)
 
 	value = NULL;
 	len = gnl(0, &value);
-	if (value <= 0)
+	if (len <= 0 || !*value)
 		return (NULL);
 	return (value);
 }
@@ -47,7 +44,7 @@ t_bucket *init_entry(char *key, char *value)
 	return (entry);
 }
 
-void	create_map(t_bucket **map[]) // t_bucket* map[] makes more sense. its a bucket pointer array.
+void	create_map(t_bucket *map[MAPSIZE]) // t_bucket* map[] makes more sense. its a bucket pointer array.
 {
 	t_bucket	*entry;
 	char		*key;
@@ -56,17 +53,16 @@ void	create_map(t_bucket **map[]) // t_bucket* map[] makes more sense. its a buc
 
 	while (1)
 	{
+		key = NULL;
+		value = NULL;
 		key = read_key();
 		if (!key)
 			break ;
-		value = read_value();
+		value = read_value(); // should we allow empty values? right now we break for either being \n
 		if (!key || !value)
 			break ;
 		hashval = sax_hash(key);
-		printf("%d\n", hashval);
 		entry = init_entry(key, value);
-		printf("%s\n", entry->key);
 		add_entry_to_map(entry, hashval, map);
-		printf("%s\n", ((*map)[hashval])->value);
 	}
 }

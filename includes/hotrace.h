@@ -4,6 +4,7 @@
 #define MAPSIZE 10
 #include <sys/types.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 typedef struct s_bucket
 {
@@ -13,8 +14,11 @@ typedef struct s_bucket
 }				t_bucket;
 
 int		sax_hash(char *key);
-void	create_map(t_bucket **map[]);
-void	add_entry_to_map(t_bucket *entry, int hindex, t_bucket **map[]);
+void	create_map(t_bucket *map[MAPSIZE]);
+void	add_entry_to_map(t_bucket *entry, int hindex, t_bucket *map[]);
+char	*read_key(void);
+
+void	search_map(t_bucket *map[MAPSIZE]);
 
 int				gnl(int const fd, char **line);
 unsigned long	hr_strlen(char *str);
