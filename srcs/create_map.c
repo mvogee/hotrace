@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   create_map.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mvogee <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/03/14 22:25:51 by mvogee            #+#    #+#             */
+/*   Updated: 2016/03/14 22:27:09 by mvogee           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/hotrace.h"
 
-char	*read_key(void)
+char		*read_key(void)
 {
-	char *key;
-	int len;
+	char	*key;
+	int		len;
 
 	key = NULL;
 	len = gnl(0, &key);
@@ -12,10 +24,10 @@ char	*read_key(void)
 	return (key);
 }
 
-char	*read_value(void)
+static char	*read_value(void)
 {
-	char *value;
-	int len;
+	char	*value;
+	int		len;
 
 	value = NULL;
 	len = gnl(0, &value);
@@ -24,7 +36,7 @@ char	*read_value(void)
 	return (value);
 }
 
-t_bucket *init_entry(char *key, char *value)
+t_bucket	*init_entry(char *key, char *value)
 {
 	t_bucket *entry;
 
@@ -35,7 +47,7 @@ t_bucket *init_entry(char *key, char *value)
 	return (entry);
 }
 
-void	create_map(t_bucket *map[MAPSIZE])
+void		create_map(t_bucket *map[MAPSIZE])
 {
 	t_bucket	*entry;
 	char		*key;

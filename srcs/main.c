@@ -1,9 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mvogee <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/03/14 22:25:51 by mvogee            #+#    #+#             */
+/*   Updated: 2016/03/14 22:27:09 by mvogee           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../includes/hotrace.h"
 
-void	hr_bzero(t_bucket *map[MAPSIZE], int n)
+static void	hr_bzero(t_bucket *map[MAPSIZE], int n)
 {
- 	int i;
+ 	int			i;
 
 	i = 0;
 	while (i < n)
@@ -13,7 +24,7 @@ void	hr_bzero(t_bucket *map[MAPSIZE], int n)
 	}
 }
 
-void	free_map(t_bucket *map[MAPSIZE])
+static void	free_map(t_bucket *map[MAPSIZE])
 {
 	int			i;
 	t_bucket	*tmp;
@@ -34,7 +45,7 @@ void	free_map(t_bucket *map[MAPSIZE])
 	}
 }
 
-int		main()
+int			main(void)
 {
 	t_bucket	*map[MAPSIZE];
 	hr_bzero(map, MAPSIZE);

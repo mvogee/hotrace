@@ -1,9 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   search_map.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mvogee <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/03/14 22:25:51 by mvogee            #+#    #+#             */
+/*   Updated: 2016/03/14 22:27:09 by mvogee           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../includes/hotrace.h"
 
-int		hr_strcmp(char *s1, char *s2)
+static int	hr_strcmp(char *s1, char *s2)
 {
-	int i;
+	int			i;
 
 	i = 0;
 	while (s1[i] || s2[i])
@@ -15,13 +26,13 @@ int		hr_strcmp(char *s1, char *s2)
 	return (1);
 }
 
-void 	not_found(char *key)
+static void	not_found(char *key)
 {
 	write(1, key, hr_strlen(key));
 	write(1, ": Not found.\n", 13);
 }
 
-void	find_value(t_bucket *tmp, char *key)
+static void	find_value(t_bucket *tmp, char *key)
 {
 	while (tmp)
 	{
@@ -37,7 +48,7 @@ void	find_value(t_bucket *tmp, char *key)
 	}
 }
 
-void	search_map(t_bucket *map[MAPSIZE])
+void		search_map(t_bucket *map[MAPSIZE])
 {
 	char		*key;
 	int			hash;
