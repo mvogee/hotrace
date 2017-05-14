@@ -2,7 +2,7 @@ NAME = hotrace
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -pg
+CFLAGS = -Wall -Wextra -Werror -pg -Ofast
 
 SRCS = srcs/main.c \
 		srcs/create_map.c \

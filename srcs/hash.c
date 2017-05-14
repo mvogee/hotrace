@@ -1,7 +1,12 @@
 
 #include "../includes/hotrace.h"
 
-int		sax_hash(char *key) // takes a key string and returns the hashed int for the key
+int		hr_abs(int x)
+{
+	return (x < 0 ? x * -1 : x);
+}
+
+int		sax_hash(char *key)
 {
 	int hash;
 
@@ -11,5 +16,5 @@ int		sax_hash(char *key) // takes a key string and returns the hashed int for th
 		hash ^= (hash << 5) + (hash >> 2) + *key;
 		key++;
 	}
-	return (abs(hash % MAPSIZE));
+	return (hr_abs(hash % MAPSIZE));
 }

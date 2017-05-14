@@ -1,13 +1,4 @@
 #include "../includes/hotrace.h"
-// todo
-/*
- XX 1. create a hashing funciton and make sure it works. XX
-
- 2. read our lines from the stdio
- 3. fill hashmap (hard part); depending on our map size we might get a lot of collision unless we go dynamic and rehash with every entry which would be auful if you ask me. and slow
- 4. make search
- 5. optimze by making collision searches faster. possibly by doing a tree sort instead of linked list.
-*/
 
 char	*read_key(void)
 {
@@ -44,7 +35,7 @@ t_bucket *init_entry(char *key, char *value)
 	return (entry);
 }
 
-void	create_map(t_bucket *map[MAPSIZE]) // t_bucket* map[] makes more sense. its a bucket pointer array.
+void	create_map(t_bucket *map[MAPSIZE])
 {
 	t_bucket	*entry;
 	char		*key;
@@ -58,7 +49,7 @@ void	create_map(t_bucket *map[MAPSIZE]) // t_bucket* map[] makes more sense. its
 		key = read_key();
 		if (!key)
 			break ;
-		value = read_value(); // should we allow empty values? right now we break for either being \n
+		value = read_value();
 		if (!key || !value)
 			break ;
 		hashval = sax_hash(key);
